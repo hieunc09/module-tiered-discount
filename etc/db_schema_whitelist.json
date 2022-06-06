@@ -1,0 +1,18 @@
+{
+    "tiered_discount_rule": {
+        "column": {
+            "entity_id": true,
+            "salesrule_id": true,
+            "spent_x": true,
+            "get_y": true,
+            "spent_w": true,
+            "get_z": true
+        },
+        "index": {
+            "TIERED_DISCOUNT_RULE_SALESRULE_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

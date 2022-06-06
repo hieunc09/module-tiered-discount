@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <fieldset name="actions">
+        <field name="tdrule[spent_x]">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">First Tiered Discount Step (Spent $X)</item>
+                    <item name="notice" xsi:type="string" translate="true">For the rule `Spent $X, get $Y discount for the whole cart; Spent $W, get Z% discount for the whole cart`</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">sales_rule</item>
+                    <item name="dataScope" xsi:type="string">extension_attributes.tdrules.spent_x</item>
+                    <item name="sortOrder" xsi:type="number">11</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="validate-greater-than-zero" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="tdrule[get_y]">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">First Tiered Discount Amount (Get $Y)</item>
+                    <item name="notice" xsi:type="string" translate="true">For the rule `Spent $X, get $Y discount for the whole cart; Spent $W, get Z% discount for the whole cart`</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">sales_rule</item>
+                    <item name="dataScope" xsi:type="string">extension_attributes.tdrules.get_y</item>
+                    <item name="sortOrder" xsi:type="number">12</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="validate-greater-than-zero" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="tdrule[spent_w]">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Second Tiered Discount Step (Spent $W)</item>
+                    <item name="notice" xsi:type="string" translate="true">For the rule `Spent $X, get $Y discount for the whole cart; Spent $W, get Z% discount for the whole cart`</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">sales_rule</item>
+                    <item name="dataScope" xsi:type="string">extension_attributes.tdrules.spent_w</item>
+                    <item name="sortOrder" xsi:type="number">13</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="validate-greater-than-zero" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="tdrule[get_z]">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Second Tiered Discount Amount (Get Z%)</item>
+                    <item name="notice" xsi:type="string" translate="true">For the rule `Spent $X, get $Y discount for the whole cart; Spent $W, get Z% discount for the whole cart`</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">sales_rule</item>
+                    <item name="dataScope" xsi:type="string">extension_attributes.tdrules.get_z</item>
+                    <item name="sortOrder" xsi:type="number">14</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="validate-greater-than-zero" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+</form>

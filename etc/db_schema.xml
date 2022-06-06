@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="tiered_discount_rule" resource="default" engine="innodb" comment="Tiered Discount Rules Table">
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity ID" />
+        <column xsi:type="int" name="salesrule_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Salesrule Entity Id" />
+        <column xsi:type="decimal" name="spent_x" scale="4" precision="12" unsigned="false" nullable="false" default="0" comment="Spent X"/>
+        <column xsi:type="decimal" name="get_y" scale="4" precision="12" unsigned="false" nullable="false" default="0" comment="Get Y"/>
+        <column xsi:type="decimal" name="spent_w" scale="4" precision="12" unsigned="false" nullable="false" default="0" comment="Spent W"/>
+        <column xsi:type="decimal" name="get_z" scale="4" precision="12" unsigned="false" nullable="false" default="0" comment="Get Z"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id" />
+        </constraint>
+        <index referenceId="TIERED_DISCOUNT_RULE_SALESRULE_ID" indexType="btree">
+            <column name="salesrule_id" />
+        </index>
+    </table>
+</schema>

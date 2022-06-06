@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Zanui\TieredDiscount\Api\Data\RuleInterface"
+                type="Zanui\TieredDiscount\Model\Rule" />
+    <type name="Magento\SalesRule\Model\Rule">
+        <plugin name="zanui_sales_rule_load_post_plugin"
+                type="Zanui\TieredDiscount\Plugin\Magento\SalesRule\Model\Rule" />
+    </type>
+    <type name="Magento\SalesRule\Model\Rule\Metadata\ValueProvider">
+        <plugin name="zanui_add_more_actions_to_cart_rules_plugin"
+                type="Zanui\TieredDiscount\Plugin\Magento\SalesRule\Model\Rule\Metadata\ValueProvider" />
+    </type>
+    <type name="Magento\Framework\EntityManager\Operation\ExtensionPool">
+        <arguments>
+            <argument name="extensionActions" xsi:type="array">
+                <item name="Magento\SalesRule\Api\Data\RuleInterface" xsi:type="array">
+                    <item name="create" xsi:type="array">
+                        <item name="create_tiered_discount_rule" xsi:type="string">Zanui\TieredDiscount\Model\SalesRule\SaveHandler</item>
+                    </item>
+                    <item name="update" xsi:type="array">
+                        <item name="update_tiered_discount_rule" xsi:type="string">Zanui\TieredDiscount\Model\SalesRule\SaveHandler</item>
+                    </item>
+                    <item name="read" xsi:type="array">
+                        <item name="read_tiered_discount_rule" xsi:type="string">Zanui\TieredDiscount\Model\SalesRule\ReadHandler</item>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\SalesRule\Model\Converter\ToDataModel">
+        <plugin name="zanui_sales_rule_model_converter_plugin"
+                type="Zanui\TieredDiscount\Plugin\Magento\SalesRule\Model\Converter\ToDataModel" />
+    </type>
+    <type name="Magento\SalesRule\Model\Rule\DataProvider">
+        <plugin name="zanui_sales_rule_data_provider_plugin"
+                type="Zanui\TieredDiscount\Plugin\Magento\SalesRule\Model\Rule\DataProvider" />
+    </type>
+    <type name="Magento\SalesRule\Model\Rule\Action\Discount\CalculatorFactory">
+        <plugin name="zanui_sales_rule_calculator_create_plugin"
+                type="Zanui\TieredDiscount\Plugin\Magento\SalesRule\Model\Rule\Action\Discount\CalculatorFactory" />
+    </type>
+</config>
