@@ -6,8 +6,8 @@
         'jquery',
         'uiRegistry',
         'Magento_Ui/js/lib/view/utils/async',
-        'Zanui_TieredDiscount/js/form',
-    ], function($, registry, async, form) {
+        'Zanui_TieredDiscount/js/form'
+    ], function ($, registry, async, form) {
         async.async('[data-index="simple_action"] select', 'sales_rule_form.sales_rule_form.actions', function () {
             form.update();
             registry.get('sales_rule_form.sales_rule_form.actions.simple_action', function (component) {

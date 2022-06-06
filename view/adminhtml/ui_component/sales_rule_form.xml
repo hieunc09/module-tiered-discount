@@ -2,6 +2,14 @@
 
 <form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <fieldset name="actions">
+        <field name="discount_amount">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="notice" xsi:type="string" translate="true">If `Spent $X, get $Y discount for the whole cart; Spent $W, get Z% discount for the whole cart` action is selected, please set a dummy value to this field to bypass the validation.</item>
+                    <item name="sortOrder" xsi:type="number">20</item>
+                </item>
+            </argument>
+        </field>
         <field name="tdrule[spent_x]">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -13,7 +21,7 @@
                     <item name="dataScope" xsi:type="string">extension_attributes.tdrules.spent_x</item>
                     <item name="sortOrder" xsi:type="number">11</item>
                     <item name="validation" xsi:type="array">
-                        <item name="validate-greater-than-zero" xsi:type="boolean">true</item>
+                        <item name="validate-number" xsi:type="boolean">true</item>
                     </item>
                 </item>
             </argument>
@@ -29,7 +37,7 @@
                     <item name="dataScope" xsi:type="string">extension_attributes.tdrules.get_y</item>
                     <item name="sortOrder" xsi:type="number">12</item>
                     <item name="validation" xsi:type="array">
-                        <item name="validate-greater-than-zero" xsi:type="boolean">true</item>
+                        <item name="validate-number" xsi:type="boolean">true</item>
                     </item>
                 </item>
             </argument>
@@ -45,7 +53,7 @@
                     <item name="dataScope" xsi:type="string">extension_attributes.tdrules.spent_w</item>
                     <item name="sortOrder" xsi:type="number">13</item>
                     <item name="validation" xsi:type="array">
-                        <item name="validate-greater-than-zero" xsi:type="boolean">true</item>
+                        <item name="validate-number" xsi:type="boolean">true</item>
                     </item>
                 </item>
             </argument>
@@ -61,7 +69,7 @@
                     <item name="dataScope" xsi:type="string">extension_attributes.tdrules.get_z</item>
                     <item name="sortOrder" xsi:type="number">14</item>
                     <item name="validation" xsi:type="array">
-                        <item name="validate-greater-than-zero" xsi:type="boolean">true</item>
+                        <item name="validate-number" xsi:type="boolean">true</item>
                     </item>
                 </item>
             </argument>

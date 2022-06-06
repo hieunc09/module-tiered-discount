@@ -39,4 +39,6 @@
         <plugin name="zanui_sales_rule_calculator_create_plugin"
                 type="Zanui\TieredDiscount\Plugin\Magento\SalesRule\Model\Rule\Action\Discount\CalculatorFactory" />
     </type>
+    <preference for="Magento\SalesRule\Model\Validator"
+                type="Zanui\TieredDiscount\Override\Magento\SalesRule\Model\Validator" />
 </config>

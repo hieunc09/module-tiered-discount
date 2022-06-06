@@ -1,7 +1,7 @@
 define([
     'jquery',
     'uiRegistry',
-    'mage/translate',
+    'mage/translate'
 ], function ($, uiRegistry) {
     var tieredDiscountForm = {
         update: function () {
