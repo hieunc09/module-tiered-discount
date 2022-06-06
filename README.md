@@ -20,6 +20,9 @@ Tiered Discount extension adds one more Cart Rule action which allows to set up 
     + First Tiered Discount Amount (Get $Y): 20
     + Second Tiered Discount Step (Spent $W): 200
     + Second Tiered Discount Amount (Get Z%): 30
+    + Discount Amount: this can be any value to bypass the validation
+
+![how_to_use.png](how_to_use.png)
 
 ## License
 
