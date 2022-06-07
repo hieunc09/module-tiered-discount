@@ -23,12 +23,6 @@ class TieredDiscount extends AbstractDiscount
      * @var RuleResolver
      */
     protected $ruleResolver;
-    /**
-     * Store information about addresses which cart fixed rule applied for
-     *
-     * @var int[]
-     */
-    protected $_cartFixedRuleUsedForAddress = [];
 
     /**
      * @var DeltaPriceRound
