@@ -2,7 +2,6 @@
 
 namespace Zanui\TieredDiscount\Model\SalesRule;
 
-use Magento\Framework\App\RequestInterface;
 use Magento\Framework\EntityManager\MetadataPool;
 use Magento\Framework\EntityManager\Operation\ExtensionInterface;
 use Magento\Framework\Exception\LocalizedException;
@@ -33,26 +32,18 @@ class SaveHandler implements ExtensionInterface
     private $ruleFactory;
 
     /**
-     * @var RequestInterface
-     */
-    private $request;
-
-    /**
      * @param Rule $ruleResource
      * @param MetadataPool $metadataPool
      * @param RuleInterfaceFactory $ruleFactory
-     * @param RequestInterface $request
      */
     public function __construct(
         Rule $ruleResource,
         MetadataPool $metadataPool,
-        RuleInterfaceFactory $ruleFactory,
-        RequestInterface $request
+        RuleInterfaceFactory $ruleFactory
     ) {
         $this->ruleResource = $ruleResource;
         $this->metadataPool = $metadataPool;
         $this->ruleFactory = $ruleFactory;
-        $this->request = $request;
     }
 
     /**
@@ -101,9 +92,17 @@ class SaveHandler implements ExtensionInterface
     private function validateRequiredFields($entity, $tieredDiscountRule)
     {
         if (stripos($entity->getSimpleAction(), 'tiered_discount') !== false) {
-            if (!$tieredDiscountRule->getSpentX() || !$tieredDiscountRule->getGetY()
-                || !$tieredDiscountRule->getSpentW() || !$tieredDiscountRule->getGetZ()) {
+            $spentX = $tieredDiscountRule->getSpentX();
+            $getY = $tieredDiscountRule->getGetY();
+            $spentW = $tieredDiscountRule->getSpentW();
+            $getZ = $tieredDiscountRule->getGetZ();
+
+            if (!$spentX || !$getY || !$spentW || !$getZ) {
                 throw new LocalizedException(__('Please specify Spent X, Get Y, Spent W and Get Z.'));
+            }
+
+            if ($spentW <= $spentX) {
+                throw new LocalizedException(__('Spent W must be greater than Spent X.'));
             }
         }
     }
