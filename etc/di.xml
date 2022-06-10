@@ -41,4 +41,8 @@
     </type>
     <preference for="Magento\SalesRule\Model\Validator"
                 type="Zanui\TieredDiscount\Override\Magento\SalesRule\Model\Validator" />
+    <preference for="Zanui\TieredDiscount\Api\Data\RuleCustomMessageInterface"
+                type="Zanui\TieredDiscount\Model\RuleCustomMessage" />
+    <preference for="Zanui\TieredDiscount\Api\RuleProviderInterface"
+                type="Zanui\TieredDiscount\Model\RuleProvider" />
 </config>

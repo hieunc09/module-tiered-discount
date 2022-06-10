@@ -8,6 +8,9 @@ use Magento\SalesRule\Api\Data\RuleInterface as SalesRuleInterface;
 use Zanui\TieredDiscount\Api\Data\RuleInterface;
 use Zanui\TieredDiscount\Api\Data\RuleInterfaceFactory;
 use Zanui\TieredDiscount\Model\ResourceModel\Rule;
+use Zanui\TieredDiscount\Api\Data\RuleCustomMessageInterface;
+use Zanui\TieredDiscount\Api\Data\RuleCustomMessageInterfaceFactory;
+use Zanui\TieredDiscount\Model\ResourceModel\RuleCustomMessage;
 
 /**
  * Class ReadHandler
@@ -31,18 +34,34 @@ class ReadHandler implements ExtensionInterface
     private $tieredDiscountRuleFactory;
 
     /**
+     * @var RuleCustomMessage
+     */
+    private $customMessageResource;
+
+    /**
+     * @var RuleCustomMessageInterfaceFactory
+     */
+    private $customMessageFactory;
+
+    /**
      * @param RuleInterfaceFactory $tieredDiscountRuleFactory
      * @param Rule $ruleResource
      * @param MetadataPool $metadataPool
+     * @param RuleCustomMessage $customMessageResource
+     * @param RuleCustomMessageInterfaceFactory $customMessageFactory
      */
     public function __construct(
         RuleInterfaceFactory $tieredDiscountRuleFactory,
         Rule $ruleResource,
-        MetadataPool $metadataPool
+        MetadataPool $metadataPool,
+        RuleCustomMessage $customMessageResource,
+        RuleCustomMessageInterfaceFactory $customMessageFactory
     ) {
         $this->ruleResource = $ruleResource;
         $this->metadataPool = $metadataPool;
         $this->tieredDiscountRuleFactory = $tieredDiscountRuleFactory;
+        $this->customMessageResource = $customMessageResource;
+        $this->customMessageFactory = $customMessageFactory;
     }
 
     /**
@@ -69,6 +88,10 @@ class ReadHandler implements ExtensionInterface
             $attributes[RuleInterface::EXTENSION_CODE] = $tieredDiscountRule;
             $entity->setData(RuleInterface::RULE_NAME, $tieredDiscountRule);
             $entity->setExtensionAttributes($attributes);
+            //set custom message
+            $customMessage = $this->customMessageFactory->create();
+            $this->customMessageResource->load($customMessage, $ruleLinkId, RuleCustomMessageInterface::RULE_ID);
+            $entity->setData(RuleCustomMessageInterface::ERROR_MESSAGE, $customMessage->getErrorMessage());
         }
 
         return $entity;

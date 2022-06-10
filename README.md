@@ -13,6 +13,7 @@ Tiered Discount extension adds one more Cart Rule action which allows to set up 
 
 ## How To Use
 
+### The tired discount rule
 - Go to the backend area and create a new Cart Price Rule
 - In the Actions section, select `Spent $X, get $Y discount for the whole cart; Spent $W, get Z% discount for the whole cart` option
 - Complete some more required fields with the tiered discount rule that you want. For example, if the rule you want is `Spent $100, get $20 discount for the whole cart; Spent $200, get 30% discount for the whole cart`, the configuration should be:
@@ -21,6 +22,17 @@ Tiered Discount extension adds one more Cart Rule action which allows to set up 
     + Second Tiered Discount Step (Spent $W): 200
     + Second Tiered Discount Amount (Get Z%): 30
     + Discount Amount: this can be any value to bypass the validation
+
+### The custom message
+- Go to the backend area and create a new Cart Price Rule
+- In the custom message section, add the error message and save
+- Get the message via API
+```
+- API URL: {baseurl}/rest/V1/salesRules/customMessage/:ruleId
+- Method: GET
+- Authorization: Not required
+- Body: Not required
+```
 
 ![how_to_use.png](how_to_use.png)
 
