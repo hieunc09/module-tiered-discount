@@ -24,16 +24,23 @@ Tiered Discount extension adds one more Cart Rule action which allows to set up 
     + Discount Amount: this can be any value to bypass the validation
 
 ### The custom message
-- Go to the backend area and create a new Cart Price Rule
-- In the custom message section, add the error message and save
-- Get the message via API
+- Go to the backend area and create a new Cart Price Rule.
+- In the custom message section, add the error message and save.
+- When guest or customer apply coupon invalid via API, the corresponding error message will be returned.
+- Apply coupon for guest
 ```
-- API URL: {baseurl}/rest/V1/salesRules/customMessage/:ruleId
-- Method: GET
+- API URL: {baseUrl}/rest/default/V1/guest-carts/{{cartId}}/coupons/{couponCode}
+- Method: PUT
 - Authorization: Not required
 - Body: Not required
 ```
-
+- Apply coupon for customer
+```
+- API URL: {baseUrl}/rest/default/V1/carts/mine/coupons/{couponCode}
+- Method: PUT 
+- Authorization: {clientToken}
+- Body: Not required
+```
 ![how_to_use.png](how_to_use.png)
 
 ## License
