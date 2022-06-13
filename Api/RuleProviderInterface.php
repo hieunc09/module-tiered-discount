@@ -15,11 +15,4 @@ interface RuleProviderInterface
      * @return \Zanui\TieredDiscount\Model\Rule
      */
     public function getTieredDiscountRuleByRuleId($ruleId);
-
-    /**
-     * @param int $ruleId
-     *
-     * @return \Zanui\TieredDiscount\Api\Data\RuleCustomMessageInterface
-     */
-    public function getCustomMessageByRuleId($ruleId);
 }
