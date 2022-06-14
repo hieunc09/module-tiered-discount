@@ -93,7 +93,7 @@ class TieredDiscount extends AbstractDiscount
 
         if ($baseRuleTotals < $spentX) {
             return $discountData;
-        } elseif ($baseRuleTotals > $spentX && $baseRuleTotals < $spentW) {
+        } elseif ($baseRuleTotals < $spentW) {
             $discountData = $this->_calculate($rule, $item, $qty, $getY, $ruleTotals);
         } else {
             $rulePercent = min(100, $getZ);
